@@ -1,0 +1,57 @@
+.socialWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: #25d366;
+    /* Default WhatsApp */
+}
+
+.button:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp {
+    background: #25d366;
+}
+
+.tiktok {
+    background: #000000;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+@media (max-width: 768px) {
+    .socialWrapper {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+
+    .button {
+        width: 45px;
+        height: 45px;
+    }
+}

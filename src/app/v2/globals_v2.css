@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --background: #020617;
+    /* Deep Obsidian */
+    --foreground: #f8fafc;
+    /* Ghost White */
+    --accent: #C5A059;
+    /* Gold Accent */
+    --accent-secondary: #64748b;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(197, 160, 89, 0.2);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.gold-text {
+    background: linear-gradient(to right, #C5A059, #F1D299, #C5A059);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(30, 58, 138, 0.05) 0%, transparent 40%);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.8;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+}
+
+section {
+    padding: 120px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.btn-elegant {
+    padding: 1rem 3rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-elegant:hover {
+    background: var(--accent);
+    color: white;
+}

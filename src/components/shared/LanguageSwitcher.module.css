@@ -1,0 +1,53 @@
+.switcher {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.langBtn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+}
+
+.langBtn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.langBtn.active {
+    opacity: 1;
+    background: #fff;
+    color: #000;
+}
+
+.flag {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .label {
+        display: none;
+    }
+
+    .switcher {
+        gap: 4px;
+    }
+
+    .langBtn {
+        padding: 4px 6px;
+    }
+}
