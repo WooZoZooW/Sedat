@@ -16,31 +16,26 @@
     z-index: 2000;
     position: relative;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 6px;
-    width: 40px;
-    height: 40px;
+
+    /* Color matching LanguageMenu */
+    color: var(--foreground);
+    transition: var(--transition-smooth);
 }
 
-.bar {
-    width: 100%;
-    height: 3px;
-    background-color: var(--foreground);
-    transition: all 0.3s ease;
-    border-radius: 2px;
+.trigger:hover {
+    color: var(--accent);
 }
 
-.open .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+.trigger.open {
+    color: var(--accent);
+    /* Keep it highlighted when open */
 }
 
-.open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.open .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+/* Rotate animation for wrench when open */
+.trigger.open svg {
+    transform: rotate(90deg);
 }
 
 .menu {
@@ -50,12 +45,10 @@
     width: 100vw;
     height: 100vh;
     background: var(--background);
-    /* Fallback */
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1001;
-    /* Above everything else */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,18 +62,12 @@
     transform: translateY(0);
 }
 
-/* Dark mode support */
 @media (prefers-color-scheme: dark) {
     .menu {
         background: rgba(10, 10, 10, 0.98);
     }
-
-    .bar {
-        background-color: var(--foreground);
-    }
 }
 
-/* Custom variants support via data attributes if needed or simpler, just cascading */
 .menuContent {
     display: flex;
     flex-direction: column;
@@ -93,6 +80,7 @@
 .menuContent a {
     color: var(--foreground);
     text-decoration: none;
+    transition: var(--transition-smooth);
 }
 
 .menuContent a:hover {
