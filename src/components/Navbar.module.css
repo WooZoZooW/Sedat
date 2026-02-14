@@ -58,8 +58,16 @@
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
-.mobileToggle {
-  display: block;
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* Gap between Globe and Wrench */
+}
+
+.desktopLang {
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -67,7 +75,8 @@
     display: flex;
   }
 
-  .mobileToggle {
+  /* Hide the whole mobile controls container (containing globe AND wrench) */
+  .mobileControls {
     display: none;
   }
 }

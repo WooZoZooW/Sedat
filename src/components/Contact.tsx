@@ -1,3 +1,5 @@
+'use client';
+
 import { useLanguage } from '../context/LanguageContext';
 import styles from './Contact.module.css';
 
@@ -14,35 +16,50 @@ export default function Contact() {
                             <span className={styles.icon}>📍</span>
                             <div>
                                 <strong>{t('contact.address')}</strong>
-                                <p>Krefelder Str. 42, 47226 Duisburg</p>
+                                <p>
+                                    <a href="https://maps.google.com/?q=Krefelder+Str.+42,47226+Duisburg" target="_blank" rel="noopener noreferrer">
+                                        Krefelder Str. 42, 47226 Duisburg
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <div className={styles.item}>
                             <span className={styles.icon}>📞</span>
                             <div>
                                 <strong>{t('contact.phone')}</strong>
-                                <p>02065/5507223</p>
+                                <p>
+                                    <a href="tel:+4920655507223">02065/5507223</a>
+                                </p>
                             </div>
                         </div>
                         <div className={styles.item}>
                             <span className={styles.icon}>💬</span>
                             <div>
                                 <strong>WhatsApp</strong>
-                                <p>+49 177 2650676</p>
+                                <p>
+                                    <a href="https://wa.me/491772650676" target="_blank" rel="noopener noreferrer">
+                                        +49 177 2650676
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <div className={styles.item}>
                             <span className={styles.icon}>📧</span>
                             <div>
                                 <strong>E-Mail</strong>
-                                <p>info@fahrschule-sedat.de</p>
+                                <p>
+                                    <a href="mailto:info@fahrschule-sedat.de">info@fahrschule-sedat.de</a>
+                                </p>
                             </div>
                         </div>
                         <div className={styles.item}>
                             <span className={styles.icon}>🕒</span>
                             <div>
                                 <strong>{t('contact.hours')}</strong>
-                                <p>{t('contact.days.mofr')} 12:00-18:00<br />{t('contact.days.sa')} 10:00-15:00</p>
+                                <p>
+                                    {t('contact.days.mofr')} 12:00-18:00<br />
+                                    {t('contact.days.sa')} 10:00-15:00
+                                </p>
                             </div>
                         </div>
                     </div>

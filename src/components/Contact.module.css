@@ -45,6 +45,16 @@
     opacity: 0.8;
 }
 
+.item a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.item a:hover {
+    color: var(--accent);
+}
+
 @media (min-width: 1024px) {
     .grid {
         grid-template-columns: 1fr 1fr;
