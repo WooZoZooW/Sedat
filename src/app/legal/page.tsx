@@ -1,25 +1,14 @@
-'use client';
+import Navbar from '../../components/Navbar';
+import Legal from '../../components/Legal';
+import styles from '../page.module.css'; // Re-use main page styles for footer if needed
 
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import LicenseClasses from '../components/LicenseClasses';
-import Theory from '../components/Theory';
-import Contact from '../components/Contact';
-import { useLanguage } from '../context/LanguageContext';
-import styles from './page.module.css';
-
-export default function Home() {
-    const { t } = useLanguage();
-
+export default function LegalPage() {
     return (
         <main className={styles.main}>
             <Navbar />
-            <Hero />
-            <About />
-            <LicenseClasses />
-            <Theory />
-            <Contact />
+            <div style={{ paddingTop: '80px' }}>
+                <Legal />
+            </div>
 
             <footer className={styles.footer}>
                 <div className="container">
@@ -27,9 +16,10 @@ export default function Home() {
                         <div>
                             <h3>Sedat <span className="accent-text">Fahrschule</span></h3>
                             <p>Inh. Sedat Kapcak</p>
-                            <p>{t('footer.tagline')}</p>
+                            <p>Sicher ans Ziel in Duisburg.</p>
                         </div>
                         <div className={styles.links}>
+                            {/* Self-referential links or back to home */}
                             <a href="/legal?tab=impressum">Impressum</a>
                             <a href="/legal?tab=datenschutz">Datenschutz</a>
                         </div>
@@ -39,7 +29,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={styles.copyright}>
-                        &copy; {new Date().getFullYear()} Fahrschule Sedat. {t('footer.copyright')}
+                        &copy; {new Date().getFullYear()} Fahrschule Sedat. Alle Rechte vorbehalten.
                     </div>
                 </div>
             </footer>

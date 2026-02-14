@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# standalone builds & archives
+/sedat-standalone/
+*.tar.gz
+*.zip
+
+# agent metadata
+.gemini/
+
+# Syncthing
+.stfolder
+.stfolder.removed*
+.stversions

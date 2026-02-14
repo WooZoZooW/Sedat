@@ -7,6 +7,7 @@ const languages = [
     { code: 'de' as const, label: 'DE', flag: '🇩🇪' },
     { code: 'tr' as const, label: 'TR', flag: '🇹🇷' },
     { code: 'en' as const, label: 'EN', flag: '🇬🇧' },
+    { code: 'ru' as const, label: 'RU', flag: '🇷🇺' },
 ];
 
 export default function LanguageSwitcher() {

@@ -1,14 +1,14 @@
 .socialWrapper {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
     padding: 10px 0;
 }
 
 .button {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -16,8 +16,6 @@
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    background: #25d366;
-    /* Default WhatsApp */
 }
 
 .button:hover {
@@ -43,15 +41,13 @@
     fill: currentColor;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .socialWrapper {
-        bottom: 20px;
-        right: 20px;
-        gap: 10px;
+        gap: 12px;
     }
 
     .button {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
 }

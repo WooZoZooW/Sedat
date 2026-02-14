@@ -74,9 +74,15 @@ h4 {
 }
 
 section {
-  padding: 80px 20px;
+  padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 80px 20px;
+  }
 }
 
 .container {
