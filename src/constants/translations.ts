@@ -75,4 +75,29 @@ export const translations = {
     "pricing.heading.part1": { de: "Unsere ", tr: "Bizim ", en: "Our ", ru: "Наши " },
     "pricing.heading.part2": { de: "Preise", tr: "Fiyatlarımız", en: "Prices", ru: "цены" },
     "pricing.placeholder": { de: "Hier kommt bald die Preisvorstellung oder -tabelle hin.", tr: "Fiyat listesi yakında buraya eklenecektir.", en: "The price list or image will be placed here soon.", ru: "Скоро здесь появится изображение или таблица с ценами." },
+    
+    // Pricing Categories
+    "pricing.cat.B": { de: "Klasse B & B197", tr: "Sınıf B & B197", en: "Class B & B197", ru: "Класс B и B197" },
+    "pricing.cat.BE": { de: "Klasse BE", tr: "Sınıf BE", en: "Class BE", ru: "Класс BE" },
+    "pricing.cat.B96": { de: "Klasse B96", tr: "Sınıf B96", en: "Class B96", ru: "Класс B96" },
+
+    // Pricing Items
+    "pricing.item.grund": { de: "Grundbetrag", tr: "Temel Ücret", en: "Basic Fee", ru: "Основной взнос" },
+    "pricing.item.lesson": { de: "Fahrstunde (45 Min.)", tr: "Direksiyon Dersi (45 dk)", en: "Driving Lesson (45 min)", ru: "Урок вождения (45 мин)" },
+    "pricing.item.special": { de: "Besondere Ausbildungsfahrten (Überland, Autobahn, Nacht)", tr: "Özel Sürüşler (Şehir dışı, Otoyol, Gece)", en: "Special Driving Lessons (Cross-country, Highway, Night)", ru: "Специальные поездки (загородные, автобан, ночные)" },
+    "pricing.item.instruction": { de: "Unterweisung am Fahrzeug (45 Min.)", tr: "Araç Tanıtımı (45 dk)", en: "Vehicle Instruction (45 min)", ru: "Инструктаж по автомобилю (45 мин)" },
+    "pricing.item.theory_exam": { de: "Vorstellungsentgelt Theorie", tr: "Teorik Sınav Sunum Ücreti", en: "Theory Exam Presentation Fee", ru: "Экзамен по теории (сборы)" },
+    "pricing.item.praxis_exam": { de: "Vorstellungsentgelt Praxis", tr: "Pratik Sınav Sunum Ücreti", en: "Practical Exam Presentation Fee", ru: "Экзамен по вождению (сборы)" },
+    "pricing.item.praxis_exam_be": { de: "Vorstellungsentgelt Praxisprüfung", tr: "Uygulamalı Sınav Sunum Ücreti", en: "Practical Exam Presentation Fee", ru: "Практический экзамен (сборы)" },
+    "pricing.item.partial_praxis": { de: "Teilprüfung Praktisches Fahren", tr: "Kısmi Sınav Uygulamalı Sürüş", en: "Partial Exam Practical Driving", ru: "Частичный экзамен (вождение)" },
+    "pricing.item.partial_check": { de: "Teilprüfung Abfahrtkontrolle", tr: "Kısmi Sınav Kalkış Kontrolü", en: "Partial Exam Departure Check", ru: "Частичный экзамен (контроль перед выездом)" },
+    "pricing.item.partial_connect": { de: "Teilprüfung Verbinden/Trennen", tr: "Kısmi Sınav Bağlama/Ayırma", en: "Partial Exam Coupling/Uncoupling", ru: "Частичный экзамен (сцепка/расцепка)" },
+
+    // Seminars
+    "pricing.seminars.title": { de: "Seminare", tr: "Seminerler", en: "Seminars", ru: "Семинары" },
+    "pricing.seminars.asf.name": { de: "ASF", tr: "ASF", en: "ASF", ru: "ASF" },
+    "pricing.seminars.asf.desc": { de: "Aufbauseminar für Fahranfänger", tr: "Yeni Sürücüler İçin Gelişim Semineri", en: "Advanced Seminar for Novice Drivers", ru: "Семинар для начинающих водителей" },
+    "pricing.seminars.fes.name": { de: "FES", tr: "FES", en: "FES", ru: "FES" },
+    "pricing.seminars.fes.desc": { de: "Fahreignungsseminar", tr: "Sürüş Uygunluk Semineri", en: "Driving Suitability Seminar", ru: "Семинар по пригодности к вождению" },
+    "pricing.seminars.on_request": { de: "Auf Anfrage", tr: "Talep Üzerine", en: "On Request", ru: "По запросу" },
 };

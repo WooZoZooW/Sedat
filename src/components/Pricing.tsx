@@ -4,38 +4,38 @@ import styles from './Pricing.module.css';
 
 const pricingData = [
   {
-    name: "Klasse B & B197",
+    nameKey: "pricing.cat.B",
     items: [
-      { label: "Grundbetrag", price: "250,00" },
-      { label: "Fahrstunde (45 Min.)", price: "55,00" },
-      { label: "Besondere Ausbildungsfahrten (Überland, Autobahn, Nacht)", price: "55,00" },
-      { label: "Unterweisung am Fahrzeug (45 Min.)", price: "55,00" },
-      { label: "Vorstellungsentgelt Theorie", price: "100,00" },
-      { label: "Vorstellungsentgelt Praxis", price: "200,00" },
+      { labelKey: "pricing.item.grund", price: "250,00" },
+      { labelKey: "pricing.item.lesson", price: "55,00" },
+      { labelKey: "pricing.item.special", price: "55,00" },
+      { labelKey: "pricing.item.instruction", price: "55,00" },
+      { labelKey: "pricing.item.theory_exam", price: "100,00" },
+      { labelKey: "pricing.item.praxis_exam", price: "200,00" },
     ]
   },
   {
-    name: "Klasse BE",
+    nameKey: "pricing.cat.BE",
     items: [
-      { label: "Grundbetrag", price: "250,00" },
-      { label: "Fahrstunde (45 Min.)", price: "60,00" },
-      { label: "Besondere Ausbildungsfahrten (Überland, Autobahn, Nacht)", price: "60,00" },
-      { label: "Unterweisung am Fahrzeug (45 Min.)", price: "60,00" },
-      { label: "Vorstellungsentgelt Praxisprüfung", price: "250,00" },
-      { label: "Teilprüfung Praktisches Fahren", price: "60,00" },
-      { label: "Teilprüfung Abfahrtkontrolle", price: "60,00" },
-      { label: "Teilprüfung Verbinden/Trennen", price: "60,00" },
+      { labelKey: "pricing.item.grund", price: "250,00" },
+      { labelKey: "pricing.item.lesson", price: "60,00" },
+      { labelKey: "pricing.item.special", price: "60,00" },
+      { labelKey: "pricing.item.instruction", price: "60,00" },
+      { labelKey: "pricing.item.praxis_exam_be", price: "250,00" },
+      { labelKey: "pricing.item.partial_praxis", price: "60,00" },
+      { labelKey: "pricing.item.partial_check", price: "60,00" },
+      { labelKey: "pricing.item.partial_connect", price: "60,00" },
     ]
   },
   {
-    name: "Klasse B96",
+    nameKey: "pricing.cat.B96",
     items: [
-      { label: "Grundbetrag", price: "250,00" },
-      { label: "Fahrstunde (45 Min.)", price: "60,00" },
-      { label: "Besondere Ausbildungsfahrten (Überland, Autobahn, Nacht)", price: "60,00" },
-      { label: "Unterweisung am Fahrzeug (45 Min.)", price: "60,00" },
-      { label: "Teilprüfung Praktisches Fahren", price: "60,00" },
-      { label: "Teilprüfung Verbinden/Trennen", price: "60,00" },
+      { labelKey: "pricing.item.grund", price: "250,00" },
+      { labelKey: "pricing.item.lesson", price: "60,00" },
+      { labelKey: "pricing.item.special", price: "60,00" },
+      { labelKey: "pricing.item.instruction", price: "60,00" },
+      { labelKey: "pricing.item.partial_praxis", price: "60,00" },
+      { labelKey: "pricing.item.partial_connect", price: "60,00" },
     ]
   }
 ];
@@ -57,12 +57,12 @@ const Pricing = () => {
                     {pricingData.map((category, idx) => (
                         <div key={idx} className={`glass-card ${styles.pricingCard}`}>
                             <div className={styles.cardHeader}>
-                                <h3>{category.name}</h3>
+                                <h3>{t(category.nameKey as any)}</h3>
                             </div>
                             <ul className={styles.priceList}>
                                 {category.items.map((item, i) => (
                                     <li key={i} className={styles.priceItem}>
-                                        <span className={styles.label}>{item.label}</span>
+                                        <span className={styles.label}>{t(item.labelKey as any)}</span>
                                         <span className={styles.price}>{item.price} €</span>
                                     </li>
                                 ))}
@@ -72,17 +72,17 @@ const Pricing = () => {
                 </div>
                 
                 <div className={styles.seminars}>
-                    <h3>Seminare</h3>
+                    <h3>{t('pricing.seminars.title')}</h3>
                     <div className={styles.seminarCards}>
                         <div className={`glass-card ${styles.seminarCard}`}>
-                            <h4>ASF</h4>
-                            <p>Aufbauseminar für Fahranfänger</p>
-                            <span className={styles.price}>Auf Anfrage</span>
+                            <h4>{t('pricing.seminars.asf.name')}</h4>
+                            <p>{t('pricing.seminars.asf.desc')}</p>
+                            <span className={styles.price}>{t('pricing.seminars.on_request')}</span>
                         </div>
                         <div className={`glass-card ${styles.seminarCard}`}>
-                            <h4>FES</h4>
-                            <p>Fahreignungsseminar</p>
-                            <span className={styles.price}>Auf Anfrage</span>
+                            <h4>{t('pricing.seminars.fes.name')}</h4>
+                            <p>{t('pricing.seminars.fes.desc')}</p>
+                            <span className={styles.price}>{t('pricing.seminars.on_request')}</span>
                         </div>
                     </div>
                 </div>
