@@ -97,7 +97,7 @@ function ImpressumPanel() {
                         <span className={styles.contactIcon}>📞</span>
                         <div>
                             <p className={styles.contactLabel}>Telefon</p>
-                            <a href="tel:+4920655507223">+49 (0) 2065 550 72 23</a>
+                            <a href="tel:+491639676927">+49 163 9676927</a>
                         </div>
                     </div>
                     <div className={styles.contactItem}>
@@ -259,7 +259,7 @@ function DatenschutzPanel() {
                     47226 Duisburg
                 </p>
                 <p>
-                    Telefon: +49 2065/5507223<br />
+                    Telefon: +49 163 9676927<br />
                     E-Mail: <a href="mailto:Info@fahrschule-sedat.de">Info@fahrschule-sedat.de</a>
                 </p>
                 <p>

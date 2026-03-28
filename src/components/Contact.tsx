@@ -28,7 +28,7 @@ export default function Contact() {
                             <div>
                                 <strong>{t('contact.phone')}</strong>
                                 <p>
-                                    <a href="tel:+4920655507223">02065/5507223</a>
+                                    <a href="tel:+491639676927">+49 163 9676927</a>
                                 </p>
                             </div>
                         </div>
@@ -37,8 +37,8 @@ export default function Contact() {
                             <div>
                                 <strong>WhatsApp</strong>
                                 <p>
-                                    <a href="https://wa.me/491772650676" target="_blank" rel="noopener noreferrer">
-                                        +49 177 2650676
+                                    <a href="https://wa.me/491639676927" target="_blank" rel="noopener noreferrer">
+                                        +49 163 9676927
                                     </a>
                                 </p>
                             </div>
