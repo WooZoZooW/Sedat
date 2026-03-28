@@ -6,7 +6,7 @@ export default function SocialButtons() {
     return (
         <div className={styles.socialWrapper}>
             <a
-                href="https://wa.me/491772650676"
+                href="https://wa.me/491639676927"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.button} ${styles.whatsapp}`}
