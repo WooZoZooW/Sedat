@@ -65,4 +65,14 @@ export const translations = {
     // Footer
     "footer.tagline": { de: "Sicher ans Ziel in Duisburg.", tr: "Duisburg'da hedefinize güvenle ulaşın.", en: "Safely to your goal in Duisburg.", ru: "Надежно к цели в Дуйсбурге." },
     "footer.copyright": { de: "Alle Rechte vorbehalten.", tr: "Tüm hakları saklıdır.", en: "All rights reserved.", ru: "Все права защищены." },
+
+    // Reviews
+    "reviews.heading.part1": { de: "Kunden", tr: "Müşteri", en: "Customer", ru: "Отзывы " },
+    "reviews.heading.part2": { de: "stimmen", tr: "Yorumları", en: "Reviews", ru: "клиентов" },
+    "reviews.google": { de: "Google Bewertungen", tr: "Google Yorumları", en: "Google Reviews", ru: "Отзывы в Google" },
+
+    // Pricing
+    "pricing.heading.part1": { de: "Unsere ", tr: "Bizim ", en: "Our ", ru: "Наши " },
+    "pricing.heading.part2": { de: "Preise", tr: "Fiyatlarımız", en: "Prices", ru: "цены" },
+    "pricing.placeholder": { de: "Hier kommt bald die Preisvorstellung oder -tabelle hin.", tr: "Fiyat listesi yakında buraya eklenecektir.", en: "The price list or image will be placed here soon.", ru: "Скоро здесь появится изображение или таблица с ценами." },
 };

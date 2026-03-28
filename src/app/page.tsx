@@ -6,6 +6,8 @@ import About from '../components/About';
 import LicenseClasses from '../components/LicenseClasses';
 import Theory from '../components/Theory';
 import Contact from '../components/Contact';
+import Pricing from '../components/Pricing';
+import Reviews from '../components/Reviews';
 import { useLanguage } from '../context/LanguageContext';
 import styles from './page.module.css';
 
@@ -17,7 +19,9 @@ export default function Home() {
             <Navbar />
             <Hero />
             <About />
+            <Pricing />
             <LicenseClasses />
+            <Reviews />
             <Theory />
             <Contact />
 
