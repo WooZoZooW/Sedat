@@ -102,8 +102,8 @@ const classes = [
     { name: 'Klasse B', descKey: 'classes.B.desc', icon: <CarIcon /> },
     { name: 'Klasse B197', descKey: 'classes.B197.desc', icon: <CarIcon /> },
     { name: 'Klasse B78', descKey: 'classes.B78.desc', icon: <CarIcon /> },
-    { name: 'Klasse BE', descKey: 'classes.BE.desc', icon: <CarTrailerSimpleIcon /> },
-    { name: 'B96', descKey: 'classes.B96.desc', icon: <CarCaravanSimpleIcon /> },
+    { name: 'Klasse BE', descKey: 'classes.BE.desc', icon: <CarCaravanSimpleIcon /> },
+    { name: 'B96', descKey: 'classes.B96.desc', icon: <CarTrailerSimpleIcon /> },
 ];
 
 export default function LicenseClasses() {

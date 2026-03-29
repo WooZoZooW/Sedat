@@ -42,7 +42,7 @@ export const translations = {
     "classes.B197.desc": { de: "Automatik-Ausbildung", tr: "Otomatik vites eğitimi", en: "Automatic training", ru: "Обучение на автомате" },
     "classes.B78.desc": { de: "Autom. (Elektro)", tr: "Otomatik (Elektrikli)", en: "Auto (Electric)", ru: "Автомат (Электро)" },
     "classes.BE.desc": { de: "PKW + Anhänger", tr: "Araba + Römork", en: "Car + Trailer", ru: "Авто + прицеп" },
-    "classes.B96.desc": { de: "PKW + Wohnwagen", tr: "Araba + Karavan", en: "Car + Caravan", ru: "Авто + дом на колесах" },
+    "classes.B96.desc": { de: "PKW + Anhänger", tr: "Araba + Römork", en: "Car + Trailer", ru: "Авто + прицеп" },
 
     // Theory
     "theory.title": { de: "Theorieunterricht", tr: "Teori Eğitimi", en: "Theory Lessons", ru: "Теоретические занятия" },
