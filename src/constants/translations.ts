@@ -86,12 +86,12 @@ export const translations = {
     "pricing.item.lesson": { de: "Fahrstunde (45 Min.)", tr: "Direksiyon Dersi (45 dk)", en: "Driving Lesson (45 min)", ru: "Урок вождения (45 мин)" },
     "pricing.item.special": { de: "Besondere Ausbildungsfahrten (Überland, Autobahn, Nacht)", tr: "Özel Sürüşler (Şehir dışı, Otoyol, Gece)", en: "Special Driving Lessons (Cross-country, Highway, Night)", ru: "Специальные поездки (загородные, автобан, ночные)" },
     "pricing.item.instruction": { de: "Unterweisung am Fahrzeug (45 Min.)", tr: "Araç Tanıtımı (45 dk)", en: "Vehicle Instruction (45 min)", ru: "Инструктаж по автомобилю (45 мин)" },
-    "pricing.item.theory_exam": { de: "Vorstellungsentgelt Theorie", tr: "Teorik Sınav Sunum Ücreti", en: "Theory Exam Presentation Fee", ru: "Экзамен по теории (сборы)" },
-    "pricing.item.praxis_exam": { de: "Vorstellungsentgelt Praxis", tr: "Pratik Sınav Sunum Ücreti", en: "Practical Exam Presentation Fee", ru: "Экзамен по вождению (сборы)" },
-    "pricing.item.praxis_exam_be": { de: "Vorstellungsentgelt Praxisprüfung", tr: "Uygulamalı Sınav Sunum Ücreti", en: "Practical Exam Presentation Fee", ru: "Практический экзамен (сборы)" },
-    "pricing.item.partial_praxis": { de: "Teilprüfung Praktisches Fahren", tr: "Kısmi Sınav Uygulamalı Sürüş", en: "Partial Exam Practical Driving", ru: "Частичный экзамен (вождение)" },
-    "pricing.item.partial_check": { de: "Teilprüfung Abfahrtkontrolle", tr: "Kısmi Sınav Kalkış Kontrolü", en: "Partial Exam Departure Check", ru: "Частичный экзамен (контроль перед выездом)" },
-    "pricing.item.partial_connect": { de: "Teilprüfung Verbinden/Trennen", tr: "Kısmi Sınav Bağlama/Ayırma", en: "Partial Exam Coupling/Uncoupling", ru: "Частичный экзамен (сцепка/расцепка)" },
+    "pricing.item.theory_exam": { de: "Theorie (Fahrschule)", tr: "Teori (Sürücü Kursu)", en: "Theory (Driving School)", ru: "Теория (Автошкола)" },
+    "pricing.item.theory_exam_hint": { de: "zzgl. 24,99 € TÜV Gebühr", tr: "+ 24,99 € TÜV Ücreti", en: "+ 24,99 € TÜV Fee", ru: "+ 24,99 € взнос в TÜV" },
+    "pricing.item.praxis_exam": { de: "Praxis (Fahrschule)", tr: "Pratik (Sürücü Kursu)", en: "Practical (Driving School)", ru: "Практика (Автошкола)" },
+    "pricing.item.praxis_exam_hint": { de: "zzgl. 129,83 € TÜV Gebühr", tr: "+ 129,83 € TÜV Ücreti", en: "+ 129,83 € TÜV Fee", ru: "+ 129,83 € взнос в TÜV" },
+    "pricing.item.praxis_exam_be": { de: "Praxis (Fahrschule)", tr: "Pratik (Sürücü Kursu)", en: "Practical (Driving School)", ru: "Практика (Автошкола)" },
+    "pricing.item.praxis_exam_be_hint": { de: "zzgl. 129,83 € TÜV Gebühr", tr: "+ 129,83 € TÜV Ücreti", en: "+ 129,83 € TÜV Fee", ru: "+ 129,83 € взнос в TÜV" },
 
     // Seminars
     "pricing.seminars.title": { de: "Seminare", tr: "Seminerler", en: "Seminars", ru: "Семинары" },

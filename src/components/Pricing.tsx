@@ -10,8 +10,8 @@ const pricingData = [
       { labelKey: "pricing.item.lesson", price: "55,00" },
       { labelKey: "pricing.item.special", price: "55,00" },
       { labelKey: "pricing.item.instruction", price: "55,00" },
-      { labelKey: "pricing.item.theory_exam", price: "100,00" },
-      { labelKey: "pricing.item.praxis_exam", price: "200,00" },
+      { labelKey: "pricing.item.theory_exam", hintKey: "pricing.item.theory_exam_hint", price: "100,00" },
+      { labelKey: "pricing.item.praxis_exam", hintKey: "pricing.item.praxis_exam_hint", price: "200,00" },
     ]
   },
   {
@@ -21,10 +21,7 @@ const pricingData = [
       { labelKey: "pricing.item.lesson", price: "60,00" },
       { labelKey: "pricing.item.special", price: "60,00" },
       { labelKey: "pricing.item.instruction", price: "60,00" },
-      { labelKey: "pricing.item.praxis_exam_be", price: "250,00" },
-      { labelKey: "pricing.item.partial_praxis", price: "60,00" },
-      { labelKey: "pricing.item.partial_check", price: "60,00" },
-      { labelKey: "pricing.item.partial_connect", price: "60,00" },
+      { labelKey: "pricing.item.praxis_exam_be", hintKey: "pricing.item.praxis_exam_be_hint", price: "250,00" },
     ]
   },
   {
@@ -34,8 +31,6 @@ const pricingData = [
       { labelKey: "pricing.item.lesson", price: "60,00" },
       { labelKey: "pricing.item.special", price: "60,00" },
       { labelKey: "pricing.item.instruction", price: "60,00" },
-      { labelKey: "pricing.item.partial_praxis", price: "60,00" },
-      { labelKey: "pricing.item.partial_connect", price: "60,00" },
     ]
   }
 ];
@@ -63,28 +58,17 @@ const Pricing = () => {
                                 {category.items.map((item, i) => (
                                     <li key={i} className={styles.priceItem}>
                                         <span className={styles.label}>{t(item.labelKey as any)}</span>
-                                        <span className={styles.price}>{item.price} €</span>
+                                        <div className={styles.priceWrapper}>
+                                            <span className={styles.price}>{item.price} €</span>
+                                            {item.hintKey && (
+                                                <span className={styles.hint}>{t(item.hintKey as any)}</span>
+                                            )}
+                                        </div>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     ))}
-                </div>
-                
-                <div className={styles.seminars}>
-                    <h3>{t('pricing.seminars.title')}</h3>
-                    <div className={styles.seminarCards}>
-                        <div className={`glass-card ${styles.seminarCard}`}>
-                            <h4>{t('pricing.seminars.asf.name')}</h4>
-                            <p>{t('pricing.seminars.asf.desc')}</p>
-                            <span className={styles.price}>{t('pricing.seminars.on_request')}</span>
-                        </div>
-                        <div className={`glass-card ${styles.seminarCard}`}>
-                            <h4>{t('pricing.seminars.fes.name')}</h4>
-                            <p>{t('pricing.seminars.fes.desc')}</p>
-                            <span className={styles.price}>{t('pricing.seminars.on_request')}</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
