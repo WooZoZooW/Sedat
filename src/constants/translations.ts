@@ -77,7 +77,7 @@ export const translations = {
     "pricing.placeholder": { de: "Hier kommt bald die Preisvorstellung oder -tabelle hin.", tr: "Fiyat listesi yakında buraya eklenecektir.", en: "The price list or image will be placed here soon.", ru: "Скоро здесь появится изображение или таблица с ценами." },
     
     // Pricing Categories
-    "pricing.cat.B": { de: "Klasse B & B197", tr: "Sınıf B & B197", en: "Class B & B197", ru: "Класс B и B197" },
+    "pricing.cat.B": { de: "Klassen B & B197 & B78", tr: "Sınıf B & B197 & B78", en: "Class B & B197 & B78", ru: "Класс B и B197 и B78" },
     "pricing.cat.BE": { de: "Klasse BE", tr: "Sınıf BE", en: "Class BE", ru: "Класс BE" },
     "pricing.cat.B96": { de: "Klasse B96", tr: "Sınıf B96", en: "Class B96", ru: "Класс B96" },
 
