@@ -38,9 +38,9 @@ export const translations = {
 
     // Classes
     "classes.heading.part1": { de: "Unsere", tr: "", en: "Our", ru: "Наши" },
-    "classes.B.desc": { de: "Auto (Schaltgetriebe)", tr: "Araba (Manuel vites)", en: "Car (Manual)", ru: "Автомобиль (МКПП)" },
-    "classes.B197.desc": { de: "Automatik-Ausbildung", tr: "Otomatik vites eğitimi", en: "Automatic training", ru: "Обучение на автомате" },
-    "classes.B78.desc": { de: "Autom. (Elektro)", tr: "Otomatik (Elektrikli)", en: "Auto (Electric)", ru: "Автомат (Электро)" },
+    "classes.B.desc": { de: "Schaltgetriebe", tr: "Manuel vites", en: "Manual transmission", ru: "МКПП (Механика)" },
+    "classes.B197.desc": { de: "Automatik- + Schaltkompetenz Ausbildung", tr: "Otomatik + Manuel yeterlilik eğitimi", en: "Automatic + Manual competence training", ru: "Автомат + обучение механической компетенции" },
+    "classes.B78.desc": { de: "Automatik", tr: "Otomatik vites", en: "Automatic", ru: "АКПП (Автомат)" },
     "classes.BE.desc": { de: "PKW + Anhänger", tr: "Araba + Römork", en: "Car + Trailer", ru: "Авто + прицеп" },
     "classes.B96.desc": { de: "PKW + Anhänger", tr: "Araba + Römork", en: "Car + Trailer", ru: "Авто + прицеп" },
 
