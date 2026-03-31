@@ -28,7 +28,7 @@ export default function Contact() {
                             <div>
                                 <strong>{t('contact.phone')}</strong>
                                 <p>
-                                    <a href="tel:+49020655507223">+49020655507223</a>
+                                    <a href="tel:+4920655507223">+49 2065 5507223</a>
                                 </p>
                             </div>
                         </div>
