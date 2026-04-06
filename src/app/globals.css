@@ -1,12 +1,12 @@
 :root {
   --background: #ffffff;
   --foreground: #111111;
-  --accent: #00d79b;
-  --accent-secondary: #00c08b;
+  --accent: #E30A17;
+  --accent-secondary: #B20812;
   --card-bg: #f8fafc;
   --card-border: #e2e8f0;
   --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(0, 215, 155, 0.2);
+  --glass-border: rgba(227, 10, 23, 0.2);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Turkish Redesign Colors */
@@ -20,7 +20,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #f0f0f0;
-    --accent: #00d79b;
+    --accent: #E30A17;
     --card-bg: #111111;
     --card-border: #1a1a1a;
     --glass-bg: rgba(10, 10, 10, 0.6);
@@ -57,7 +57,7 @@ a {
 }
 
 .premium-gradient {
-  background: linear-gradient(135deg, var(--accent) 0%, #1e40af 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #1a1a1a 100%);
 }
 
 .accent-text {

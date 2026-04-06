@@ -27,7 +27,7 @@ export default function Home() {
                 <div className="container">
                     <div className={styles.footerGrid}>
                         <div>
-                            <h3>Sedat <span className="accent-text">Fahrschule</span></h3>
+                            <h3>Fahrschule <span className="accent-text">Sedat</span></h3>
                             <p>Inh. Sedat Kapcak</p>
                             <p>{t('footer.tagline')}</p>
                         </div>

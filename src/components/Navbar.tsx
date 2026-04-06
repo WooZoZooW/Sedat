@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className={`${styles.navbar} glass`}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          Sedat <span className="accent-text">Fahrschule</span>
+          Fahrschule <span className="accent-text">Sedat</span>
         </Link>
         <div className={styles.links}>
           <Link href="/#about">{t('nav.about')}</Link>
