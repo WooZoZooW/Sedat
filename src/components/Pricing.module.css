@@ -90,6 +90,13 @@
     white-space: nowrap;
 }
 
+.originalPrice {
+    font-size: 0.8rem;
+    text-decoration: line-through;
+    opacity: 0.5;
+    margin-right: 0.5rem;
+}
+
 .priceWrapper {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,164 @@
+.promotionContainer {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid rgba(227, 10, 23, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+  position: relative;
+  min-height: 350px;
+}
+
+.content {
+  flex: 1;
+  min-width: 300px;
+  z-index: 2;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(227, 10, 23, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--turkish-dark);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.priceCircle {
+  background: var(--accent);
+  width: clamp(200px, 30vw, 280px);
+  height: clamp(200px, 30vw, 280px);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(227, 10, 23, 0.4);
+  transform: rotate(5deg);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.priceCircle:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.priceNow {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.priceBefore {
+  font-size: 1.2rem;
+  text-decoration: line-through;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.priceLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.includes {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.decorativeShapes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shape1 {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  opacity: 0.05;
+  border-radius: 50%;
+}
+
+.shape2 {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  opacity: 0.03;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content {
+    margin-bottom: 2rem;
+  }
+
+  .priceCircle {
+    margin: 0 auto;
+  }
+}

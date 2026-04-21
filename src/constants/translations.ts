@@ -35,6 +35,8 @@ export const translations = {
     "about.feature1": { de: "Freundliche Fahrlehrer/innen", tr: "Arkadaş canlısı eğitmenler", en: "Friendly instructors", ru: "Дружелюбные инструкторы" },
     "about.feature2": { de: "Moderne Ausbildungsfahrzeuge", tr: "Modern eğitim araçları", en: "Modern training vehicles", ru: "Современные учебные автомобили" },
     "about.feature3": { de: "Entspannte Atmosphäre", tr: "Rahat atmosfer", en: "Relaxed atmosphere", ru: "Расслабленная атмосфера" },
+    "about.feature4": { de: "Persönliche Betreuung", tr: "Kişisel destek", en: "Personal support", ru: "Индивидуальный подход" },
+    "about.feature5": { de: "Moderne Ausbildung", tr: "Modern eğitim", en: "Modern training", ru: "Современное обучение" },
 
     // Classes
     "classes.heading.part1": { de: "Unsere", tr: "", en: "Our", ru: "Наши" },
@@ -100,4 +102,20 @@ export const translations = {
     "pricing.seminars.fes.name": { de: "FES", tr: "FES", en: "FES", ru: "FES" },
     "pricing.seminars.fes.desc": { de: "Fahreignungsseminar", tr: "Sürüş Uygunluk Semineri", en: "Driving Suitability Seminar", ru: "Семинар по пригодности к вождению" },
     "pricing.seminars.on_request": { de: "Auf Anfrage", tr: "Talep Üzerine", en: "On Request", ru: "По запросу" },
+
+    // Promotion
+    "promo.title": { de: "Frühlingsaktion", tr: "Bahar Kampanyası", en: "Spring Promotion", ru: "Весенняя акция" },
+    "promo.subtitle": { 
+        de: "Nur für kurze Zeit ab dem 13.04.2026", 
+        tr: "13.04.2026'dan itibaren kısa bir süre için", 
+        en: "For a short time only from 13.04.2026", 
+        ru: "Только на короткое время с 13.04.2026" 
+    },
+    "promo.offer": { 
+        de: "Anmeldung jetzt nur 100€ statt 250€", 
+        tr: "Kayıt şimdi 250€ yerine sadece 100€", 
+        en: "Registration now only 100€ instead of 250€", 
+        ru: "Регистрация сейчас всего 100€ вместо 250€" 
+    },
+    "promo.include": { de: "inkl. Lern-App", tr: "Öğrenme uygulaması dahil", en: "incl. learning app", ru: "вкл. обучающее приложение" },
 };

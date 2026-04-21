@@ -31,6 +31,12 @@ export default function About() {
                             <div className={styles.featureItem}>
                                 <span className={styles.check}>✓</span> {t('about.feature3')}
                             </div>
+                            <div className={styles.featureItem}>
+                                <span className={styles.check}>✓</span> {t('about.feature4')}
+                            </div>
+                            <div className={styles.featureItem}>
+                                <span className={styles.check}>✓</span> {t('about.feature5')}
+                            </div>
                         </div>
                     </div>
                     <div className={styles.imageWrapper}>

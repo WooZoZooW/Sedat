@@ -6,7 +6,7 @@ const pricingData = [
   {
     nameKey: "pricing.cat.B",
     items: [
-      { labelKey: "pricing.item.grund", price: "250,00" },
+      { labelKey: "pricing.item.grund", price: "100,00", originalPrice: "250,00" },
       { labelKey: "pricing.item.lesson", price: "55,00" },
       { labelKey: "pricing.item.special", price: "55,00" },
       { labelKey: "pricing.item.instruction", price: "55,00" },
@@ -59,7 +59,12 @@ const Pricing = () => {
                                     <li key={i} className={styles.priceItem}>
                                         <span className={styles.label}>{t(item.labelKey as any)}</span>
                                         <div className={styles.priceWrapper}>
-                                            <span className={styles.price}>{item.price} €</span>
+                                            <div className={styles.priceContainer}>
+                                                {(item as any).originalPrice && (
+                                                    <span className={styles.originalPrice}>{(item as any).originalPrice} €</span>
+                                                )}
+                                                <span className={styles.price}>{item.price} €</span>
+                                            </div>
                                             {item.hintKey && (
                                                 <span className={styles.hint}>{t(item.hintKey as any)}</span>
                                             )}
