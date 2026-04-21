@@ -1,11 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import styles from './Promotion.module.css';
 
 const Promotion = () => {
     const { t } = useLanguage();
+    const [isTossing, setIsTossing] = useState(false);
+
+    const handleToss = () => {
+        if (isTossing) return;
+        setIsTossing(true);
+        setTimeout(() => setIsTossing(false), 2500); // Sync with CSS duration
+    };
 
     return (
         <section className={styles.promotionContainer}>
@@ -24,7 +31,10 @@ const Promotion = () => {
                     <p className={styles.subtitle}>{t('promo.subtitle')}</p>
                 </div>
 
-                <div className={styles.priceCircle}>
+                <div 
+                    className={`${styles.priceCircle} ${isTossing ? styles.tossing : ''}`}
+                    onClick={handleToss}
+                >
                     <div className={styles.priceLabel}>Anmeldung</div>
                     <div className={styles.priceBefore}>statt 250 €</div>
                     <div className={styles.priceNow}>100 €</div>
