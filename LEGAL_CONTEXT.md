@@ -101,7 +101,7 @@ wenden.
 
 2. Hosting
 
-Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
+Wir hosten die Inhalte unserer Website bei folgenden Anbietern:
 
 Strato
 
@@ -117,6 +117,20 @@ Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wu
 ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die
 Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers
 (z. B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.
+
+Cloudflare
+
+Wir nutzen den Dienst „Cloudflare“. Anbieter ist die Cloudflare Inc., 101 Townsend St., San Francisco, CA 94107, USA (im Folgenden „Cloudflare“).
+
+Cloudflare bietet ein weltweit verteiltes Content Delivery Network mit DNS an. Dabei wird technisch der Informationstransfer zwischen Ihrem Browser und unserer Website über das Netzwerk von Cloudflare geleitet. Das versetzt Cloudflare in die Lage, den Datenverkehr zwischen Ihrem Browser und unserer Website zu analysieren und als Filter zwischen unseren Servern und potenziell bösartigem Datenverkehr aus dem Internet zu dienen. Hierbei kann Cloudflare auch Cookies oder sonstige Technologien zur Wiedererkennung von Internetnutzern einsetzen, die jedoch nur zum beschriebenen Zweck verwendet werden.
+
+Der Einsatz von Cloudflare erfolgt auf Grundlage unseres berechtigten Interesses an einer möglichst fehlerfreien und sicheren Bereitstellung unseres Webangebots (Art. 6 Abs. 1 lit. f DSGVO).
+
+Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie hier: https://www.cloudflare.com/privacypolicy/.
+
+Das Unternehmen verfügt über eine Zertifizierung nach dem „EU-US Data Privacy Framework“ (DPF). Der DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die Einhaltung europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt0000000GnZKAA0&status=Active.
+
+Weitere Informationen zu Sicherheit und Datenschutz bei Cloudflare finden Sie hier: https://www.cloudflare.com/privacypolicy/.
 
 3. Allgemeine Hinweise und Pflicht­informationen
 Datenschutz
