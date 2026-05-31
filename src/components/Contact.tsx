@@ -57,8 +57,7 @@ export default function Contact() {
                             <div>
                                 <strong>{t('contact.hours')}</strong>
                                 <p>
-                                    {t('contact.days.mofr')} 12:00-18:00<br />
-                                    {t('contact.days.sa')} 10:00-15:00
+                                    {t('contact.days.mofr')} 12:00-18:00
                                 </p>
                             </div>
                         </div>
