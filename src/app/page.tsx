@@ -2,7 +2,6 @@
 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Promotion from '../components/Promotion';
 import About from '../components/About';
 import LicenseClasses from '../components/LicenseClasses';
 import Theory from '../components/Theory';
@@ -18,7 +17,6 @@ export default function Home() {
         <main className={styles.main}>
             <Navbar />
             <Hero />
-            <Promotion />
             <About />
             <Pricing />
             <LicenseClasses />
