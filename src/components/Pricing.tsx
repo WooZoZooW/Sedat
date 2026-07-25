@@ -6,7 +6,7 @@ const pricingData = [
   {
     nameKey: "pricing.cat.B",
     items: [
-      { labelKey: "pricing.item.grund", price: "100,00", originalPrice: "250,00" },
+      { labelKey: "pricing.item.grund", price: "250,00" },
       { labelKey: "pricing.item.lesson", price: "55,00" },
       { labelKey: "pricing.item.special", price: "55,00" },
       { labelKey: "pricing.item.instruction", price: "55,00" },
