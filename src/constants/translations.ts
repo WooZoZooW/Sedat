@@ -104,18 +104,17 @@ export const translations = {
     "pricing.seminars.on_request": { de: "Auf Anfrage", tr: "Talep Üzerine", en: "On Request", ru: "По запросу" },
 
     // Promotion
-    "promo.title": { de: "Frühlingsaktion", tr: "Bahar Kampanyası", en: "Spring Promotion", ru: "Весенняя акция" },
+    "promo.title": { de: "Sommeraktion", tr: "Yaz Kampanyası", en: "Summer Promotion", ru: "Летняя акция" },
     "promo.subtitle": { 
-        de: "Nur für kurze Zeit ab dem 13.04.2026", 
-        tr: "13.04.2026'dan itibaren kısa bir süre için", 
-        en: "For a short time only from 13.04.2026", 
-        ru: "Только на короткое время с 13.04.2026" 
+        de: "Nur für kurze Zeit ab dem 01.08.2026", 
+        tr: "1 Ağustos 2026'dan itibaren kısa bir süre için", 
+        en: "For a short time only from August 1, 2026", 
+        ru: "Только на короткое время с 1 августа 2026" 
     },
     "promo.offer": { 
-        de: "Anmeldung jetzt nur 100€ statt 250€", 
-        tr: "Kayıt şimdi 250€ yerine sadece 100€", 
-        en: "Registration now only 100€ instead of 250€", 
-        ru: "Регистрация сейчас всего 100€ вместо 250€" 
+        de: "Anmeldung jetzt nur 99€ statt 250€", 
+        tr: "Kayıt şimdi 250€ yerine sadece 99€", 
+        en: "Registration now only 99€ instead of 250€", 
+        ru: "Регистрация сейчас всего 99€ вместо 250€" 
     },
-    "promo.include": { de: "inkl. Lern-App", tr: "Öğrenme uygulaması dahil", en: "incl. learning app", ru: "вкл. обучающее приложение" },
 };

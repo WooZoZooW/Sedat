@@ -6,7 +6,7 @@ const pricingData = [
   {
     nameKey: "pricing.cat.B",
     items: [
-      { labelKey: "pricing.item.grund", price: "250,00" },
+      { labelKey: "pricing.item.grund", price: "99,00", originalPrice: "250,00" },
       { labelKey: "pricing.item.lesson", price: "55,00" },
       { labelKey: "pricing.item.special", price: "55,00" },
       { labelKey: "pricing.item.instruction", price: "55,00" },
@@ -17,7 +17,7 @@ const pricingData = [
   {
     nameKey: "pricing.cat.BE",
     items: [
-      { labelKey: "pricing.item.grund", price: "250,00" },
+      { labelKey: "pricing.item.grund", price: "99,00", originalPrice: "250,00" },
       { labelKey: "pricing.item.lesson", price: "60,00" },
       { labelKey: "pricing.item.special", price: "60,00" },
       { labelKey: "pricing.item.instruction", price: "60,00" },
@@ -27,7 +27,7 @@ const pricingData = [
   {
     nameKey: "pricing.cat.B96",
     items: [
-      { labelKey: "pricing.item.grund", price: "250,00" },
+      { labelKey: "pricing.item.grund", price: "99,00", originalPrice: "250,00" },
       { labelKey: "pricing.item.lesson", price: "60,00" },
       { labelKey: "pricing.item.special", price: "60,00" },
       { labelKey: "pricing.item.instruction", price: "60,00" },

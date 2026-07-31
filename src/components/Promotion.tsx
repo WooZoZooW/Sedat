@@ -25,7 +25,7 @@ const Promotion = () => {
                 <div className={styles.content}>
                     <span className={styles.tag}>{t('promo.title')}</span>
                     <h2 className={styles.title}>
-                        FRÜHLINGS<br />
+                        SOMMER<br />
                         <span className="accent-text">AKTION</span>
                     </h2>
                     <p className={styles.subtitle}>{t('promo.subtitle')}</p>
@@ -37,8 +37,7 @@ const Promotion = () => {
                 >
                     <div className={styles.priceLabel}>Anmeldung</div>
                     <div className={styles.priceBefore}>statt 250 €</div>
-                    <div className={styles.priceNow}>100 €</div>
-                    <div className={styles.includes}>{t('promo.include')}</div>
+                    <div className={styles.priceNow}>99 €</div>
                 </div>
             </div>
         </section>
