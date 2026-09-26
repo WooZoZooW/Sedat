@@ -1,0 +1,7 @@
+{
+  "apiUrl": "https://your-agent-hub-worker.example.workers.dev",
+  "pollIntervalMs": 3000,
+  "projects": {
+    "sedat-site": "/absolute/path/to/the/sedat/project"
+  }
+}

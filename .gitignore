@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.dev.vars
 
 # vercel
 .vercel
@@ -47,6 +48,8 @@ next-env.d.ts
 
 # agent metadata
 .gemini/
+/agent-hub.config.json
+/agent-hub/worker/.dev.vars
 
 # Syncthing
 .stfolder

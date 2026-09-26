@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:agent-hub": "node --test agent-hub/worker/test/*.test.mjs agent-hub/hub/test/*.test.mjs"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.18.0",
