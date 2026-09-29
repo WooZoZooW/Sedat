@@ -45,6 +45,15 @@ export class HubStore {
       window_start INTEGER NOT NULL,
       count INTEGER NOT NULL
     )`);
+    ctx.storage.sql.exec(`CREATE TABLE IF NOT EXISTS dashboard_sessions (
+      token_hash TEXT PRIMARY KEY,
+      expires_at INTEGER NOT NULL
+    )`);
+    ctx.storage.sql.exec(`CREATE TABLE IF NOT EXISTS dashboard_login_limits (
+      ip_key TEXT PRIMARY KEY,
+      window_start INTEGER NOT NULL,
+      count INTEGER NOT NULL
+    )`);
   }
 
   async fetch(request) {
@@ -112,6 +121,60 @@ export class HubStore {
           );
           return Response.json({ task }, { status: 201 });
         });
+      }
+
+      if (url.pathname === "/internal/dashboard/login-attempt" && request.method === "POST") {
+        const { ipKey } = body;
+        if (typeof ipKey !== "string" || !/^[a-f0-9]{64}$/.test(ipKey)) return Response.json({ error: "invalid_request" }, { status: 400 });
+        return this.ctx.storage.transactionSync(() => {
+          this.ctx.storage.sql.exec("DELETE FROM dashboard_login_limits WHERE window_start < ?", now - 15 * 60 * 1000);
+          this.ctx.storage.sql.exec("DELETE FROM dashboard_sessions WHERE expires_at <= ?", now);
+          const row = this.ctx.storage.sql.exec("SELECT window_start, count FROM dashboard_login_limits WHERE ip_key = ?", ipKey).toArray()[0];
+          if (row && now - row.window_start < 15 * 60 * 1000 && row.count >= 5) return Response.json({ error: "rate_limited" }, { status: 429 });
+          if (row && now - row.window_start < 15 * 60 * 1000) {
+            this.ctx.storage.sql.exec("UPDATE dashboard_login_limits SET count = count + 1 WHERE ip_key = ?", ipKey);
+          } else {
+            this.ctx.storage.sql.exec(`INSERT INTO dashboard_login_limits(ip_key, window_start, count) VALUES(?, ?, 1)
+              ON CONFLICT(ip_key) DO UPDATE SET window_start=excluded.window_start, count=1`, ipKey, now);
+          }
+          return Response.json({ allowed: true });
+        });
+      }
+      if (url.pathname === "/internal/dashboard/login-success" && request.method === "POST") {
+        if (typeof body.ipKey === "string") this.ctx.storage.sql.exec("DELETE FROM dashboard_login_limits WHERE ip_key = ?", body.ipKey);
+        return Response.json({ ok: true });
+      }
+      if (url.pathname === "/internal/dashboard/sessions" && request.method === "POST") {
+        if (typeof body.tokenHash !== "string" || !/^[a-f0-9]{64}$/.test(body.tokenHash) || !Number.isFinite(body.expiresAt)) {
+          return Response.json({ error: "invalid_request" }, { status: 400 });
+        }
+        this.ctx.storage.sql.exec("INSERT INTO dashboard_sessions(token_hash, expires_at) VALUES(?, ?)", body.tokenHash, body.expiresAt);
+        return Response.json({ ok: true }, { status: 201 });
+      }
+      const sessionMatch = url.pathname.match(/^\/internal\/dashboard\/sessions\/([a-f0-9]{64})$/);
+      if (sessionMatch && request.method === "GET") {
+        const row = this.ctx.storage.sql.exec("SELECT expires_at FROM dashboard_sessions WHERE token_hash = ?", sessionMatch[1]).toArray()[0];
+        if (!row || row.expires_at <= now) {
+          if (row) this.ctx.storage.sql.exec("DELETE FROM dashboard_sessions WHERE token_hash = ?", sessionMatch[1]);
+          return Response.json({ error: "unauthorized" }, { status: 401 });
+        }
+        return Response.json({ expiresAt: row.expires_at });
+      }
+      if (sessionMatch && request.method === "DELETE") {
+        this.ctx.storage.sql.exec("DELETE FROM dashboard_sessions WHERE token_hash = ?", sessionMatch[1]);
+        return Response.json({ ok: true });
+      }
+      if (url.pathname === "/internal/dashboard/tasks" && request.method === "GET") {
+        const projects = url.searchParams.getAll("project");
+        const limit = Number(url.searchParams.get("limit") ?? 50);
+        if (!projects.length || projects.length > 20 || projects.some((project) => !/^[a-z0-9][a-z0-9_-]{0,63}$/.test(project)) || !Number.isInteger(limit) || limit < 1 || limit > 100) {
+          return Response.json({ error: "invalid_request" }, { status: 400 });
+        }
+        const rows = this.ctx.storage.sql.exec(
+          `SELECT data FROM tasks WHERE project_id IN (${projects.map(() => "?").join(",")}) ORDER BY created_at DESC LIMIT ?`,
+          ...projects, limit,
+        ).toArray();
+        return Response.json({ tasks: rows.map((row) => readJson(row.data)) });
       }
 
       if (request.method === "POST" && url.pathname === "/internal/claim") {

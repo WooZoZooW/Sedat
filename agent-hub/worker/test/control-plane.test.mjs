@@ -1,7 +1,7 @@
 import test, { before, beforeEach, after } from "node:test";
 import assert from "node:assert/strict";
 import { DatabaseSync } from "node:sqlite";
-import { generateKeyPairSync, randomBytes, sign } from "node:crypto";
+import { generateKeyPairSync, pbkdf2Sync, randomBytes, sign } from "node:crypto";
 import worker, { HubStore } from "../src/index.mjs";
 import { createHub } from "../../hub/hub.mjs";
 
@@ -9,6 +9,9 @@ const { privateKey, publicKey } = generateKeyPairSync("rsa", { modulusLength: 20
 const jwk = { ...publicKey.export({ format: "jwk" }), kid: "unit-test-key", alg: "RS256", use: "sig" };
 const team = "test-team.cloudflareaccess.com";
 const audience = "test-audience";
+const dashboardPassword = "test-only dashboard password";
+const dashboardSalt = Buffer.from("dashboard-test-salt-24-bytes!!");
+const dashboardHash = `pbkdf2-sha256$100000$${dashboardSalt.toString("base64url")}$${pbkdf2Sync(dashboardPassword, dashboardSalt, 100000, 32, "sha256").toString("base64url")}`;
 let db;
 let store;
 let env;
@@ -50,6 +53,8 @@ function setup() {
     ACCESS_AUD: audience,
     AGENT_ID: "workstation-1",
     AGENT_TOKEN: randomBytes(32).toString("base64url"),
+    AGENT_HUB_DASHBOARD_PROXY_SECRET: randomBytes(32).toString("base64url"),
+    AGENT_HUB_ADMIN_PASSWORD_HASH: dashboardHash,
     AGENT_PROJECTS: '["sedat-site"]',
   };
 }
@@ -61,11 +66,14 @@ function expireLease(id) {
   db.prepare("UPDATE tasks SET lease_until = 1, data = ? WHERE id = ?").run(JSON.stringify(task), id);
 }
 
-async function call(path, { method = "GET", body, subject, token, agent = true, headers = {} } = {}) {
+async function call(path, { method = "GET", body, subject, token, agent = true, dashboard = false, headers = {} } = {}) {
   const requestHeaders = new Headers(headers);
   if (body !== undefined) requestHeaders.set("content-type", "application/json");
   if (subject) requestHeaders.set("cf-access-jwt-assertion", accessToken(subject));
-  if (token) requestHeaders.set("authorization", `Bearer ${token}`);
+  if (dashboard) {
+    requestHeaders.set("authorization", `Bearer ${env.AGENT_HUB_DASHBOARD_PROXY_SECRET}`);
+    if (!requestHeaders.has("x-dashboard-client-ip")) requestHeaders.set("x-dashboard-client-ip", "192.0.2.10");
+  } else if (token) requestHeaders.set("authorization", `Bearer ${token}`);
   else if (agent) requestHeaders.set("authorization", `Bearer ${env.AGENT_TOKEN}`);
   const request = new Request(`https://control.example${path}`, {
     method,
@@ -146,6 +154,102 @@ test("authenticated API enforces task input and ownership", async () => {
   assert.equal(hidden.response.status, 404);
   const visible = await call(`/v1/tasks/${created.value.task.id}`, { subject: "user-a", agent: false });
   assert.equal(visible.value.task.id, created.value.task.id);
+});
+
+test("dashboard is password protected, uses revocable server sessions, and exposes only scoped task operations", async () => {
+  const noProxy = await call("/v1/dashboard/tasks", { agent: false });
+  assert.equal(noProxy.response.status, 401);
+  const noSession = await call("/v1/dashboard/tasks", { dashboard: true, agent: false });
+  assert.equal(noSession.response.status, 401);
+  const noStatusSession = await call("/v1/dashboard/status", { dashboard: true, agent: false });
+  assert.equal(noStatusSession.response.status, 401);
+
+  const wrongPassword = await call("/v1/dashboard/session", {
+    method: "POST", body: { password: "incorrect test password" }, dashboard: true, agent: false,
+  });
+  assert.equal(wrongPassword.response.status, 401);
+  assert.equal(wrongPassword.response.headers.get("set-cookie"), null);
+
+  const signedIn = await call("/v1/dashboard/session", {
+    method: "POST", body: { password: dashboardPassword }, dashboard: true, agent: false,
+    headers: { cookie: `agent_hub_session=${"A".repeat(43)}` },
+  });
+  assert.equal(signedIn.response.status, 200);
+  assert.deepEqual(signedIn.value.authenticated, true);
+  const setCookie = signedIn.response.headers.get("set-cookie");
+  assert.match(setCookie, /HttpOnly/);
+  assert.match(setCookie, /Secure/);
+  assert.match(setCookie, /SameSite=Strict/);
+  assert.match(setCookie, /Path=\/v1\/dashboard/);
+  const cookie = setCookie.split(";", 1)[0];
+  assert.notEqual(cookie, `agent_hub_session=${"A".repeat(43)}`);
+  assert.equal(JSON.stringify(signedIn.value).includes(dashboardPassword), false);
+  assert.equal(JSON.stringify(signedIn.value).includes(env.AGENT_HUB_DASHBOARD_PROXY_SECRET), false);
+  assert.equal(JSON.stringify(signedIn.value).includes(dashboardHash), false);
+
+  const session = await call("/v1/dashboard/session", { dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(session.response.status, 200);
+  assert.equal(session.value.authenticated, true);
+  assert.equal(Object.hasOwn(session.value, "token"), false);
+
+  const statusBeforeRegistration = await call("/v1/dashboard/status", { dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(statusBeforeRegistration.value.worker, "online");
+  assert.equal(statusBeforeRegistration.value.agent, "unregistered");
+  await call("/v1/agent/register", { method: "POST", body: { projects: ["sedat-site"] } });
+  const status = await call("/v1/dashboard/status", { dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(status.value.agent, "online");
+
+  const created = await call("/v1/dashboard/tasks", {
+    method: "POST", body: { projectId: "sedat-site", command: "Dashboard task request." }, dashboard: true, agent: false,
+    headers: { cookie, "idempotency-key": "dashboard-request-0001" },
+  });
+  assert.equal(created.response.status, 201);
+  assert.equal(created.value.task.state, "queued");
+  assert.equal(Object.hasOwn(created.value.task, "owner"), false);
+  const duplicateCreate = await call("/v1/dashboard/tasks", {
+    method: "POST", body: { projectId: "sedat-site", command: "Dashboard task request." }, dashboard: true, agent: false,
+    headers: { cookie, "idempotency-key": "dashboard-request-0001" },
+  });
+  assert.equal(duplicateCreate.response.status, 200);
+  assert.equal(duplicateCreate.value.task.id, created.value.task.id);
+  const listed = await call("/v1/dashboard/tasks?limit=100", { dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(listed.value.tasks.length, 1);
+  assert.equal(listed.value.tasks[0].command, "Dashboard task request.");
+  const detail = await call(`/v1/dashboard/tasks/${created.value.task.id}`, { dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(detail.response.status, 200);
+  assert.equal(detail.value.task.id, created.value.task.id);
+  assert.equal(Object.hasOwn(detail.value.task, "owner"), false);
+
+  const loggedOut = await call("/v1/dashboard/session", { method: "DELETE", dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(loggedOut.response.status, 200);
+  assert.match(loggedOut.response.headers.get("set-cookie"), /Max-Age=0/);
+  const invalidated = await call("/v1/dashboard/session", { dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(invalidated.response.status, 401);
+  const directAgentRoute = await call("/v1/agent/health", { agent: false });
+  assert.equal(directAgentRoute.response.status, 401);
+});
+
+test("dashboard login rate limits repeated failures and expires server-side sessions", async () => {
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const rejected = await call("/v1/dashboard/session", {
+      method: "POST", body: { password: "wrong password" }, dashboard: true, agent: false,
+    });
+    assert.equal(rejected.response.status, 401);
+  }
+  const limited = await call("/v1/dashboard/session", {
+    method: "POST", body: { password: dashboardPassword }, dashboard: true, agent: false,
+  });
+  assert.equal(limited.response.status, 429);
+
+  const anotherIp = await call("/v1/dashboard/session", {
+    method: "POST", body: { password: dashboardPassword }, dashboard: true, agent: false,
+    headers: { "x-dashboard-client-ip": "192.0.2.11" },
+  });
+  assert.equal(anotherIp.response.status, 200);
+  const cookie = anotherIp.response.headers.get("set-cookie").split(";", 1)[0];
+  db.prepare("UPDATE dashboard_sessions SET expires_at = 1").run();
+  const expired = await call("/v1/dashboard/session", { dashboard: true, agent: false, headers: { cookie } });
+  assert.equal(expired.response.status, 401);
 });
 
 test("agent lifecycle claims once, renews lease, and completes idempotently", async () => {

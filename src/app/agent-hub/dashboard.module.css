@@ -1,0 +1,412 @@
+.page {
+  --hub-bg: #f4f6f8;
+  --hub-surface: #ffffff;
+  --hub-surface-muted: #f8fafb;
+  --hub-text: #1d252b;
+  --hub-muted: #59666f;
+  --hub-border: #d8e0e5;
+  --hub-accent: #c90a17;
+  --hub-accent-hover: #a90813;
+  --hub-success: #13764a;
+  --hub-success-bg: #eaf6ef;
+  --hub-warning: #8a5a08;
+  --hub-warning-bg: #fff5dc;
+  --hub-danger: #a5232b;
+  --hub-danger-bg: #fff0f0;
+  min-height: 100vh;
+  padding: clamp(20px, 5vw, 56px) max(16px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  color: var(--hub-text);
+  background: var(--hub-bg);
+}
+
+.loading {
+  display: grid;
+  min-height: 60vh;
+  place-items: center;
+  color: var(--hub-muted);
+  font-size: 1rem;
+}
+
+.loginCard,
+.shell {
+  width: min(100%, 960px);
+  margin-inline: auto;
+}
+
+.loginCard {
+  width: min(100%, 440px);
+  margin-top: min(10vh, 96px);
+  padding: clamp(24px, 6vw, 36px);
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgb(22 36 45 / 7%);
+}
+
+.brandMark,
+.statusIcon {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--hub-accent);
+  font-weight: 750;
+}
+
+.statusIcon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.brandMark {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--hub-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.loginCard h1,
+.heading h1,
+.sectionHeading h2 {
+  margin: 0;
+  color: var(--hub-text);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.loginCard h1,
+.heading h1 {
+  font-size: clamp(1.55rem, 5vw, 2rem);
+}
+
+.sectionHeading h2 {
+  font-size: 1.25rem;
+}
+
+.description {
+  margin: 12px 0 24px;
+  color: var(--hub-muted);
+  line-height: 1.55;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.form label {
+  margin-top: 4px;
+  color: var(--hub-text);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  color: var(--hub-text);
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.form textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.form input:focus-visible,
+.form select:focus-visible,
+.form textarea:focus-visible,
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.taskDetails summary:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--hub-accent) 35%, transparent);
+  outline-offset: 2px;
+  border-color: var(--hub-accent);
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.primaryButton {
+  color: #fff;
+  background: var(--hub-accent);
+  border: 1px solid var(--hub-accent);
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--hub-accent-hover);
+  border-color: var(--hub-accent-hover);
+}
+
+.secondaryButton {
+  color: var(--hub-text);
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+}
+
+.secondaryButton:hover:not(:disabled) {
+  background: var(--hub-surface-muted);
+  border-color: #aab8c0;
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.page button,
+.page input,
+.page select,
+.page textarea {
+  font-size: 1rem;
+}
+
+.shell {
+  display: grid;
+  gap: 20px;
+}
+
+.header,
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header {
+  padding-bottom: 8px;
+}
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.statusCard {
+  display: flex;
+  min-height: 84px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 12px;
+}
+
+.statusIcon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 10px;
+}
+
+.statusCard p {
+  margin: 0 0 3px;
+  color: var(--hub-muted);
+  font-size: 0.82rem;
+}
+
+.statusCard strong {
+  font-size: 0.97rem;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  margin-left: auto;
+  border-radius: 50%;
+}
+
+.good { background: var(--hub-success); }
+.neutral { background: #89959c; }
+
+.panel {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 4vw, 24px);
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 12px;
+}
+
+.hint,
+.empty {
+  margin: 0;
+  color: var(--hub-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.form .hint { margin-top: -6px; }
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.error,
+.errorBanner,
+.successBanner {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  line-height: 1.45;
+}
+
+.error,
+.errorBanner {
+  color: var(--hub-danger);
+  background: var(--hub-danger-bg);
+}
+
+.successBanner {
+  color: var(--hub-success);
+  background: var(--hub-success-bg);
+}
+
+.taskList {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.task {
+  min-width: 0;
+  padding: 14px;
+  background: var(--hub-surface-muted);
+  border: 1px solid var(--hub-border);
+  border-radius: 9px;
+}
+
+.taskTopline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.taskTopline time {
+  margin-left: auto;
+  color: var(--hub-muted);
+  font-size: 0.82rem;
+}
+
+.stateBadge,
+.projectBadge {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.state_queued, .state_claimed { color: var(--hub-warning); background: var(--hub-warning-bg); }
+.state_running { color: #155c83; background: #eaf5fc; }
+.state_completed { color: var(--hub-success); background: var(--hub-success-bg); }
+.state_failed, .state_cancelled { color: var(--hub-danger); background: var(--hub-danger-bg); }
+
+.projectBadge {
+  color: var(--hub-muted);
+  background: #edf1f3;
+}
+
+.taskDetails {
+  margin-top: 10px;
+  border-top: 1px solid var(--hub-border);
+}
+
+.taskDetails summary {
+  min-height: 44px;
+  padding-top: 12px;
+  color: var(--hub-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.commandText,
+.resultText,
+.taskMeta {
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.commandText { white-space: pre-wrap; }
+.taskMeta { color: var(--hub-muted); font-size: 0.8rem; }
+.resultText { color: var(--hub-success); }
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --hub-bg: #171b1e;
+    --hub-surface: #202629;
+    --hub-surface-muted: #252c30;
+    --hub-text: #edf1f3;
+    --hub-muted: #b2bdc3;
+    --hub-border: #3b474d;
+    --hub-accent: #f0444d;
+    --hub-accent-hover: #d93842;
+    --hub-success: #85d6a8;
+    --hub-success-bg: #203b2d;
+    --hub-warning: #f1c36b;
+    --hub-warning-bg: #40351f;
+    --hub-danger: #ff9a9f;
+    --hub-danger-bg: #47272a;
+  }
+
+  .projectBadge { background: #343e43; }
+  .state_running { color: #9bd4f3; background: #203947; }
+  .secondaryButton:hover:not(:disabled) { border-color: #71818a; }
+}
+
+@media (max-width: 560px) {
+  .statusGrid { grid-template-columns: 1fr; }
+  .header { align-items: flex-start; }
+  .taskTopline time { width: 100%; margin-left: 0; }
+  .formActions .primaryButton { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton { transition: none; }
+}
