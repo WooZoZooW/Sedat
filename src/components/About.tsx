@@ -39,15 +39,32 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.imageWrapper}>
-                        <Image
-                            src="/assets/car1.jpg"
-                            alt="Unser Schulungsfahrzeug"
-                            width={500}
-                            height={600}
-                            className={styles.image}
-                        />
-                    </div>
+                    <figure className={styles.imageWrapper}>
+                        <div className={styles.photoInner}>
+                            <Image
+                                src="/assets/car1.jpg"
+                                alt="Unser Schulungsfahrzeug"
+                                width={500}
+                                height={600}
+                                className={styles.image}
+                            />
+                        </div>
+                        <figcaption className={styles.caption}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path
+                                    d="M12 2c1.4 3.4 4.6 5.3 4.6 9.1a4.6 4.6 0 1 1-9.2 0c0-1.7.7-3 1.7-4.2.4 1.1 1.1 2 2.1 2.5C11.1 6.4 10.7 4.1 12 2z"
+                                    fill="url(#flameGradient)"
+                                />
+                                <defs>
+                                    <linearGradient id="flameGradient" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                        <stop stopColor="#ffb347" />
+                                        <stop offset="1" stopColor="#E30A17" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Fahrschule Sedat · Duisburg
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </section>

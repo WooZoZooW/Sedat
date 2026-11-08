@@ -62,10 +62,8 @@
     transform: translateY(0);
 }
 
-@media (prefers-color-scheme: dark) {
-    .menu {
-        background: rgba(10, 10, 10, 0.98);
-    }
+:root[data-theme="dark"] .menu {
+    background: rgba(10, 12, 18, 0.98);
 }
 
 .menuContent {

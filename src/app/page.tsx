@@ -28,22 +28,29 @@ export default function Home() {
             <footer className={styles.footer}>
                 <div className="container">
                     <div className={styles.footerGrid}>
-                        <div>
+                        <div className={styles.brand}>
                             <h3>Fahrschule <span className="accent-text">Sedat</span></h3>
-                            <p>Inh. Sedat Kapcak</p>
-                            <p>{t('footer.tagline')}</p>
+                            <p className={styles.owner}>Inh. Sedat Kapcak</p>
+                            <p className={styles.tagline}>{t('footer.tagline')}</p>
                         </div>
-                        <div className={styles.links}>
-                            <a href="/legal?tab=impressum">Impressum</a>
-                            <a href="/legal?tab=datenschutz">Datenschutz</a>
+                        <div className={styles.footerCol}>
+                            <h4>{t('footer.legal')}</h4>
+                            <div className={styles.links}>
+                                <a href="/legal?tab=impressum">{t('nav.impressum')}</a>
+                                <a href="/legal?tab=datenschutz">{t('nav.privacy')}</a>
+                            </div>
                         </div>
-                        <div className={styles.social}>
-                            <a href="https://www.instagram.com/fahrschule__sedat" target="_blank">Instagram</a>
-                            <a href="https://www.tiktok.com/@fahrschulesedat" target="_blank">TikTok</a>
+                        <div className={styles.footerCol}>
+                            <h4>{t('footer.social')}</h4>
+                            <div className={styles.social}>
+                                <a href="https://www.instagram.com/fahrschule__sedat" target="_blank" rel="noreferrer">Instagram</a>
+                                <a href="https://www.tiktok.com/@fahrschulesedat" target="_blank" rel="noreferrer">TikTok</a>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.copyright}>
-                        &copy; {new Date().getFullYear()} Fahrschule Sedat. {t('footer.copyright')}
+                        <span>&copy; {new Date().getFullYear()} Fahrschule Sedat</span>
+                        <span>{t('footer.copyright')}</span>
                     </div>
                 </div>
             </footer>

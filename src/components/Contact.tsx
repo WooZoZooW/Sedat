@@ -17,7 +17,7 @@ export default function Contact() {
                             <div>
                                 <strong>{t('contact.address')}</strong>
                                 <p>
-                                    <a href="https://maps.google.com/?q=Krefelder+Str.+42,47226+Duisburg" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://maps.app.goo.gl/RrHvXAHMeRruAe5EA" target="_blank" rel="noopener noreferrer">
                                         Krefelder Str. 42, 47226 Duisburg
                                     </a>
                                 </p>

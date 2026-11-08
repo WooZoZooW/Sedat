@@ -1,8 +1,21 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import type { TranslationKey } from '../constants/translations';
 import styles from './Pricing.module.css';
 
-const pricingData = [
+interface PricingItem {
+  labelKey: TranslationKey;
+  hintKey?: TranslationKey;
+  price: string;
+  originalPrice?: string;
+}
+
+interface PricingCategory {
+  nameKey: TranslationKey;
+  items: PricingItem[];
+}
+
+const pricingData: PricingCategory[] = [
   {
     nameKey: "pricing.cat.B",
     items: [
@@ -45,35 +58,46 @@ const Pricing = () => {
                     <h2 className="section-title">
                         {t('pricing.heading.part1')} <span className="accent-text">{t('pricing.heading.part2')}</span>
                     </h2>
-                    <p className={styles.subtitle}>PREISAUSHANG nach § 32 Fahrlehrergesetz</p>
+                    <p className={styles.subtitle}>{t('pricing.notice')}</p>
                 </div>
 
                 <div className={styles.grid}>
-                    {pricingData.map((category, idx) => (
-                        <div key={idx} className={`glass-card ${styles.pricingCard}`}>
-                            <div className={styles.cardHeader}>
-                                <h3>{t(category.nameKey as any)}</h3>
-                            </div>
-                            <ul className={styles.priceList}>
-                                {category.items.map((item, i) => (
-                                    <li key={i} className={styles.priceItem}>
-                                        <span className={styles.label}>{t(item.labelKey as any)}</span>
-                                        <div className={styles.priceWrapper}>
-                                            <div className={styles.priceContainer}>
-                                                {(item as any).originalPrice && (
-                                                    <span className={styles.originalPrice}>{(item as any).originalPrice} €</span>
+                    {pricingData.map((category, idx) => {
+                        const isPromo = category.nameKey === "pricing.cat.B";
+                        return (
+                            <div
+                                key={idx}
+                                className={`glass-card ${styles.pricingCard} ${isPromo ? styles.promoCard : ''}`}
+                            >
+                                {isPromo && (
+                                    <div className={styles.winterBadge}>
+                                        <span>❄️</span> {t('promo.title')}
+                                    </div>
+                                )}
+                                <div className={styles.cardHeader}>
+                                    <h3>{t(category.nameKey)}</h3>
+                                </div>
+                                <ul className={styles.priceList}>
+                                    {category.items.map((item, i) => (
+                                        <li key={i} className={styles.priceItem}>
+                                            <span className={styles.label}>{t(item.labelKey)}</span>
+                                            <div className={styles.priceWrapper}>
+                                                <div className={styles.priceContainer}>
+                                                    {item.originalPrice && (
+                                                        <span className={styles.originalPrice}>{item.originalPrice} €</span>
+                                                    )}
+                                                    <span className={`${styles.price} ${item.originalPrice ? styles.promoPrice : ''}`}>{item.price} €</span>
+                                                </div>
+                                                {item.hintKey && (
+                                                    <span className={styles.hint}>{t(item.hintKey)}</span>
                                                 )}
-                                                <span className={styles.price}>{item.price} €</span>
                                             </div>
-                                            {item.hintKey && (
-                                                <span className={styles.hint}>{t(item.hintKey as any)}</span>
-                                            )}
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

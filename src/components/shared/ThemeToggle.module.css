@@ -1,0 +1,33 @@
+.trigger {
+    background: transparent;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.trigger:hover {
+    color: var(--accent);
+}
+
+.icon {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconLight {
+    display: inline-flex;
+}
+
+:root[data-theme="dark"] .iconLight {
+    display: none;
+}
+
+:root[data-theme="dark"] .iconDark {
+    display: inline-flex;
+}

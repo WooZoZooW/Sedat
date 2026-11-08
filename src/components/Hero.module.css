@@ -24,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(0deg, var(--background) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(180deg, rgba(10, 16, 28, 0.72) 0%, rgba(15, 24, 38, 0.45) 55%, var(--background) 100%);
   z-index: 1;
 }
 
@@ -36,10 +36,11 @@
 }
 
 .title {
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-size: clamp(1.5rem, 7vw, 3.8rem);
   line-height: 1.1;
   margin-bottom: 1.2rem;
   color: #fff;
+  white-space: nowrap;
 }
 
 .subtitle {

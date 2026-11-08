@@ -1,5 +1,23 @@
 .classes {
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+}
+
+.classes > * {
+    position: relative;
+    z-index: 1;
+}
+
+.classes::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     background: var(--card-bg);
+    -webkit-mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, #000 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, #000 30%, transparent 100%);
+    pointer-events: none;
 }
 
 .heading {
@@ -9,12 +27,15 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+    --grid-gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--grid-gap);
 }
 
 .card {
+    flex: 0 0 calc((100% - 2 * var(--grid-gap)) / 3);
     padding: 1.5rem;
     border-radius: 20px;
     text-align: center;
@@ -29,6 +50,11 @@
 .icon {
     font-size: 2rem;
     margin-bottom: 1rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
 }
 
 .card h3 {
@@ -39,6 +65,43 @@
 .card p {
     opacity: 0.8;
     font-size: 1rem;
+}
+
+@media (max-width: 1023px) {
+    .card {
+        flex-basis: calc((100% - var(--grid-gap)) / 2);
+    }
+}
+
+@media (max-width: 767px) {
+    .grid {
+        --grid-gap: 0.75rem;
+    }
+
+    .card {
+        padding: 0.9rem 0.6rem;
+        border-radius: 16px;
+    }
+
+    .icon {
+        height: 46px;
+        margin-bottom: 0.5rem;
+    }
+
+    .icon svg {
+        width: 46px;
+        height: 46px;
+    }
+
+    .card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .card p {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
 }
 
 @media (min-width: 768px) {

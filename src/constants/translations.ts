@@ -7,6 +7,14 @@ export const translations = {
     "nav.theory": { de: "Theorie", tr: "Teori", en: "Theory", ru: "Теория" },
     "nav.contact": { de: "Kontakt", tr: "İletişim", en: "Contact", ru: "Контакты" },
     "nav.join": { de: "Anmelden", tr: "Kayıt Ol", en: "Join", ru: "Записаться" },
+    "nav.impressum": { de: "Impressum", tr: "Künye", en: "Legal Notice", ru: "Выходные данные" },
+    "nav.privacy": { de: "Datenschutz", tr: "Gizlilik", en: "Privacy", ru: "Конфиденциальность" },
+
+    // Theme
+    "theme.label": { de: "Design", tr: "Tema", en: "Theme", ru: "Тема" },
+    "theme.system": { de: "System", tr: "Sistem", en: "System", ru: "Системная" },
+    "theme.light": { de: "Hell", tr: "Açık", en: "Light", ru: "Светлая" },
+    "theme.dark": { de: "Dunkel", tr: "Koyu", en: "Dark", ru: "Тёмная" },
 
     // Hero
     "hero.title": { de: "Fahrschule", tr: "Sürüş Okulu", en: "Driving School", ru: "Автошкола" },
@@ -16,7 +24,6 @@ export const translations = {
         en: "Arrive safely at your goal – with competence and experience. We accompany you step by step from the first theory lessons to the practical test.",
         ru: "Надежно к цели – с компетентностью и опытом. Мы сопровождаем вас шаг за шагом от первых теоретических занятий до практического экзамена."
     },
-
     // About
     "about.heading.part1": { de: "Über", tr: "", en: "About", ru: "О" },
     "about.heading.part2": { de: "uns", tr: "Hakkımızda", en: "Us", ru: "нас" },
@@ -67,6 +74,8 @@ export const translations = {
     // Footer
     "footer.tagline": { de: "Sicher ans Ziel in Duisburg.", tr: "Duisburg'da hedefinize güvenle ulaşın.", en: "Safely to your goal in Duisburg.", ru: "Надежно к цели в Дуйсбурге." },
     "footer.copyright": { de: "Alle Rechte vorbehalten.", tr: "Tüm hakları saklıdır.", en: "All rights reserved.", ru: "Все права защищены." },
+    "footer.legal": { de: "Rechtliches", tr: "Yasal Bilgiler", en: "Legal", ru: "Документы" },
+    "footer.social": { de: "Folge uns", tr: "Bizi takip et", en: "Follow us", ru: "Мы в соцсетях" },
 
     // Reviews
     "reviews.heading.part1": { de: "Kunden", tr: "Müşteri", en: "Customer", ru: "Отзывы " },
@@ -77,6 +86,7 @@ export const translations = {
     "pricing.heading.part1": { de: "Unsere ", tr: "Bizim ", en: "Our ", ru: "Наши " },
     "pricing.heading.part2": { de: "Preise", tr: "Fiyatlarımız", en: "Prices", ru: "цены" },
     "pricing.placeholder": { de: "Hier kommt bald die Preisvorstellung oder -tabelle hin.", tr: "Fiyat listesi yakında buraya eklenecektir.", en: "The price list or image will be placed here soon.", ru: "Скоро здесь появится изображение или таблица с ценами." },
+    "pricing.notice": { de: "PREISAUSHANG nach § 32 Fahrlehrergesetz", tr: "§ 32 Sürücü Eğitmenliği Kanunu uyarınca FİYAT LİSTESİ", en: "PRICE LIST pursuant to § 32 of the Driving Instructor Act", ru: "ПРАЙС-ЛИСТ согласно § 32 Закона об автошколах" },
     
     // Pricing Categories
     "pricing.cat.B": { de: "Klassen B & B197 & B78", tr: "Sınıf B & B197 & B78", en: "Class B & B197 & B78", ru: "Класс B и B197 и B78" },
@@ -118,4 +128,16 @@ export const translations = {
         ru: "Регистрация сейчас всего 49€ вкл. приложение вместо 250€" 
     },
     "promo.include": { de: "inkl. App", tr: "Uygulama dahil", en: "incl. app", ru: "вкл. приложение" },
+    "promo.timeTag": { de: "Nur für kurze Zeit", tr: "Sadece kısa bir süre için", en: "For a short time only", ru: "Только на короткое время" },
+    "promo.title.part1": { de: "WINTER-", tr: "KIŞ", en: "WINTER", ru: "ЗИМНЯЯ" },
+    "promo.title.part2": { de: "AKTION", tr: "KAMPANYASI", en: "PROMOTION", ru: "АКЦИЯ" },
+    "promo.feature1": { de: "Moderne Fahrzeuge", tr: "Modern araçlar", en: "Modern vehicles", ru: "Современные автомобили" },
+    "promo.feature2": { de: "Erfahrene Fahrlehrer", tr: "Deneyimli eğitmenler", en: "Experienced instructors", ru: "Опытные инструкторы" },
+    "promo.feature3": { de: "Persönliche Betreuung", tr: "Kişisel destek", en: "Personal support", ru: "Индивидуальный подход" },
+    "promo.feature4": { de: "Moderne Ausbildung", tr: "Modern eğitim", en: "Modern training", ru: "Современное обучение" },
+    "promo.cta": { de: "Jetzt anmelden", tr: "Hemen kayıt ol", en: "Register now", ru: "Записаться сейчас" },
+    "promo.badgeTop": { de: "ANMELDUNG JETZT NUR", tr: "KAYIT ŞİMDİ SADECE", en: "REGISTRATION NOW ONLY", ru: "РЕГИСТРАЦИЯ СЕЙЧАС ВСЕГО" },
+    "promo.badgeApp": { de: "INKL. APP", tr: "UYGULAMA DAHİL", en: "INCL. APP", ru: "ВКЛ. ПРИЛОЖЕНИЕ" },
+    "promo.badgeStatt": { de: "STATT 250€", tr: "250€ YERİNE", en: "INSTEAD OF 250€", ru: "ВМЕСТО 250€" },
+    "promo.badgeHint": { de: "* Klick auf die Plakette", tr: "* Plakaya dokunun", en: "* Click the badge", ru: "* Нажмите на плашку" },
 };

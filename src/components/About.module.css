@@ -1,5 +1,6 @@
 .about {
     background: var(--background);
+    overflow: hidden;
 }
 
 .grid {
@@ -41,20 +42,110 @@
 
 .imageWrapper {
     position: relative;
-    border-radius: 20px;
+    isolation: isolate;
+    margin: 0;
+    padding: 14px 14px 0;
+    border-radius: 26px;
+    background-color: #ecd9c3;
+    background-image:
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.45) 0 2px, transparent 2px 7px),
+        repeating-linear-gradient(90deg, rgba(150, 100, 60, 0.12) 0 4px, transparent 4px 9px),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.18) 0 5px, transparent 5px 10px),
+        linear-gradient(145deg, #fff7ee 0%, #f1dfc8 55%, #e4cdb2 100%);
+    border: 1px solid rgba(190, 140, 95, 0.45);
+    box-shadow:
+        0 24px 50px rgba(80, 50, 30, 0.18),
+        0 0 70px rgba(255, 160, 80, 0.2);
+    transform: rotate(-2.5deg);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.imageWrapper::before {
+    content: "";
+    position: absolute;
+    inset: -20% -15%;
+    z-index: -1;
+    background: radial-gradient(ellipse at 60% 45%, rgba(255, 170, 90, 0.38), transparent 65%);
+    filter: blur(26px);
+    pointer-events: none;
+}
+
+.photoInner {
+    position: relative;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 5 / 4;
+    background: #201812;
 }
 
 .image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
+}
+
+.photoInner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, transparent 55%, rgba(255, 135, 60, 0.18) 100%),
+        radial-gradient(circle at 82% 88%, rgba(255, 175, 95, 0.35), transparent 55%);
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+.caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 12px;
+    padding: 0.7rem 0.5rem 0.85rem;
+    border-top: 1.5px dashed rgba(150, 100, 60, 0.35);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7a4a2a;
+}
+
+.imageWrapper:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow:
+        0 30px 60px rgba(80, 50, 30, 0.22),
+        0 0 90px rgba(255, 160, 80, 0.3);
 }
 
 .imageWrapper:hover .image {
     transform: scale(1.05);
+}
+
+:root[data-theme="dark"] .imageWrapper {
+    background-color: #2a1e16;
+    background-image:
+        repeating-linear-gradient(90deg, rgba(255, 220, 180, 0.08) 0 2px, transparent 2px 7px),
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0 4px, transparent 4px 9px),
+        repeating-linear-gradient(0deg, rgba(255, 220, 180, 0.05) 0 5px, transparent 5px 10px),
+        linear-gradient(145deg, #3a2a20 0%, #2a1e16 55%, #1b1310 100%);
+    border-color: rgba(190, 130, 85, 0.35);
+    box-shadow:
+        0 24px 50px rgba(0, 0, 0, 0.55),
+        0 0 70px rgba(255, 140, 60, 0.22);
+}
+
+:root[data-theme="dark"] .caption {
+    color: #e7c4a2;
+    border-top-color: rgba(200, 140, 90, 0.3);
+}
+
+@media (max-width: 767px) {
+    .imageWrapper {
+        transform: rotate(-1.5deg);
+    }
 }
 
 @media (min-width: 768px) {

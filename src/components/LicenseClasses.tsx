@@ -1,6 +1,8 @@
 'use client';
 
+import type { ReactElement } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import type { TranslationKey } from '../constants/translations';
 import styles from './LicenseClasses.module.css';
 
 // Professional Minimalist Vector Icons (Monoline, Geometric)
@@ -98,7 +100,7 @@ const CarCaravanSimpleIcon = () => (
 );
 
 
-const classes = [
+const classes: { name: string; descKey: TranslationKey; icon: ReactElement }[] = [
     { name: 'Klasse B', descKey: 'classes.B.desc', icon: <CarIcon /> },
     { name: 'Klasse B197', descKey: 'classes.B197.desc', icon: <CarIcon /> },
     { name: 'Klasse B78', descKey: 'classes.B78.desc', icon: <CarIcon /> },
@@ -120,11 +122,11 @@ export default function LicenseClasses() {
                 <div className={styles.grid}>
                     {classes.map((cls, i) => (
                         <div key={i} className={`${styles.card} glass`}>
-                            <div className={styles.icon} style={{ color: 'var(--accent)', height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div className={styles.icon}>
                                 {cls.icon}
                             </div>
                             <h3>{cls.name}</h3>
-                            <p>{t(cls.descKey as any)}</p>
+                            <p>{t(cls.descKey)}</p>
                         </div>
                     ))}
                 </div>

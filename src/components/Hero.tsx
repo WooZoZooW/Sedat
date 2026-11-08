@@ -11,8 +11,8 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.overlay}></div>
       <Image
-        src="https://lh3.googleusercontent.com/p/AF1QipPkd13573Ag1IK8cyI0p0MfvjoojCsov7BpKNwW=s1600"
-        alt="Fahrschule Sedat Team"
+        src="/assets/vw-golf-winter.jpg"
+        alt="Volkswagen Golf im Winter"
         fill
         style={{ objectFit: 'cover' }}
         priority

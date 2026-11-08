@@ -1,0 +1,63 @@
+.snowContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.flake {
+  position: absolute;
+  top: -30px;
+  color: #d6eaff;
+  user-select: none;
+  pointer-events: none;
+  animation-name: fallAndSway;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  will-change: transform;
+}
+
+.crystal {
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 
+    0 1px 3px rgba(20, 50, 90, 0.5),
+    0 0 8px rgba(150, 200, 255, 0.9);
+}
+
+.dot {
+  display: block;
+  background: #d6eaff;
+  border-radius: 50%;
+  box-shadow: 
+    0 1px 3px rgba(20, 50, 90, 0.5),
+    0 0 7px rgba(150, 200, 255, 0.9);
+}
+
+@keyframes fallAndSway {
+  0% {
+    transform: translate3d(0, -30px, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(15px, 25vh, 0) rotate(90deg);
+  }
+  50% {
+    transform: translate3d(-15px, 50vh, 0) rotate(180deg);
+  }
+  75% {
+    transform: translate3d(20px, 75vh, 0) rotate(270deg);
+  }
+  100% {
+    transform: translate3d(-10px, 105vh, 0) rotate(360deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .flake:nth-child(2n) {
+    display: none;
+  }
+}
